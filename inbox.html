@@ -1,0 +1,23 @@
+<!DOCTYPE html>
+<html>
+<head>
+    <title>Inbox</title>
+</head>
+<body>
+
+<h2>Your Emails</h2>
+
+<ul>
+{% for mail in emails %}
+    <li>
+        {{ mail }}
+        <form method="POST" action="/speak">
+            <input type="hidden" name="content" value="{{ mail }}">
+            <button type="submit">Read</button>
+        </form>
+    </li>
+{% endfor %}
+</ul>
+
+</body>
+</html>

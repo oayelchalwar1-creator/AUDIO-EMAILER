@@ -1,0 +1,31 @@
+{% extends "base.html" %}
+{% block content %}
+
+<h4>Reading preferences</h4>
+
+<form method="post" action="/preferences/save">
+
+Voice
+<input class="form-control" name="voice"
+       value="{{ pref.voice if pref else '' }}">
+
+Speed
+<input class="form-control" name="speed" type="number"
+       value="{{ pref.speed if pref else 160 }}">
+
+Pause
+<input class="form-control" name="pause" type="number" step="0.1"
+       value="{{ pref.pause if pref else 0 }}">
+
+Theme
+<select class="form-control" name="theme">
+  <option value="light">Light</option>
+  <option value="dark">Dark</option>
+</select>
+
+<br>
+<button class="btn btn-primary">Save</button>
+
+</form>
+
+{% endblock %}
